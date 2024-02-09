@@ -1,0 +1,10 @@
+td {
+    width: 5vw;
+    height: 6vh;
+}  
+h1 {
+    text-align: center;
+}
+.table-bordered>:not(caption)>*>* {
+    border-width: 5 var(--bs-border-width);
+}
