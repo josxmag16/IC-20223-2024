@@ -9,42 +9,42 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body onload="onPageLoad()">
-<h1>Algoritmo A* por Jose Maria y Juan</h1>
+<h1>Algoritmo A* por Jose Maria y Juan Embid</h1>
 <div class="container w-75">
     <table id="table" class="table table-bordered">
     </table>
     <div class="btn-group" role="group">
-        <button type="button" class="btn btn-danger" onclick="buttonClick('prohibited')">Prohibited</button>
-        <button type="button" class="btn btn-primary" onclick="buttonClick('start')">Start Point</button>
-        <button type="button" class="btn btn-success" onclick="buttonClick('end')">End Point</button>
+        <button type="button" class="btn btn-danger" onclick="buttonClick('prohibited')">Prohibido</button>
+        <button type="button" class="btn btn-primary" onclick="buttonClick('start')">Punto de Inicio</button>
+        <button type="button" class="btn btn-success" onclick="buttonClick('end')">Punto Final</button>
     </div>
     <div class="btn-group" role="group">
-        <button type="button" class="btn btn-warning" onclick="buttonClick('waypoint')">Waypoint</button>
-        <button type="button" class="btn btn-dark" onclick="buttonClick('danger')">Danger Zone</button>
-        <button type="button" class="btn btn-secondary" onclick="buttonClick('mountain')">Mountain</button>
+        <button type="button" class="btn btn-warning" onclick="buttonClick('waypoint')">Punto de Referencia</button>
+        <button type="button" class="btn btn-dark" onclick="buttonClick('danger')">Zona de Peligro</button>
+        <button type="button" class="btn btn-secondary" onclick="buttonClick('mountain')">Montaña</button>
     </div>
     <div class="btn-group" role="group">
-        <button type="button" class="btn btn-outline-primary" onclick="buttonClick('delete')">Delete</button>
-        <button type="button" class="btn btn-outline-primary" onclick="buttonClick('reset')">Reset Table</button>
-        <button type="button" class="btn btn-outline-primary" onclick="buttonClick('start')">Start Algorithm</button>
+        <button type="button" class="btn btn-outline-primary" onclick="buttonClick('delete')">Borrar</button>
+        <button type="button" class="btn btn-outline-primary" onclick="buttonClick('reset')">Reiniciar Tabla</button>
+        <button type="button" class="btn btn-outline-primary" onclick="buttonClick('start')">Comenzar Algoritmo</button>
     </div>
     <div class="row g-3 mt-3">
         <div class="col-auto">
-            <label for="mountainHeight" class="form-label">Select Mountain Height</label>
+            <label for="mountainHeight" class="form-label">Seleccione la Altura de la Montaña</label>
             <input type="number" class="form-control" id="mountainHeight" oninput="heightChange()" placeholder="Mountain Height">
         </div>
         <div class="col-auto">
-            <label for="planeHeight" class="form-label">Select Plane Height</label>
+            <label for="planeHeight" class="form-label">Seleccione la Altura del Plano</label>
             <input type="number" class="form-control" id="planeHeight" oninput="heightChange()" placeholder="Plane Height">
         </div>
     </div>
     <div class="row g-3 mt-3">
         <div class="col-auto">
-            <label for="rows" class="form-label">Rows</label>
+            <label for="rows" class="form-label">Filas</label>
             <input type="number" class="form-control" id="rows" oninput="rowsColsChange()" placeholder="Rows" min="2" max="50">
         </div>
         <div class="col-auto">
-            <label for="columns" class="form-label">Columns</label>
+            <label for="columns" class="form-label">Columnas</label>
             <input type="number" class="form-control" id="columns" oninput="rowsColsChange()" placeholder="Columns" min="2" max="50">
         </div>
     </div>

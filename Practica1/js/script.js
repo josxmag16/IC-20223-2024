@@ -66,13 +66,13 @@ function buttonClick(mode) {
             break;
         } case 'start': {
             if(startNode === null || endNode === null) {
-                messageBox.innerText = 'You must define a start and an end point.';
+                messageBox.innerText = 'Debe definir un punto de inicio y otro de fin.';
                 return;
             }
             openList.push(startNode);
             const result = waypoints.length === 0 ? search(endNode) : searchWaypoint();
             if(result.length === 0) {
-                messageBox.innerText = 'No path available.';
+                messageBox.innerText = 'No se ha encontrado solución.';
                 return;
             }
             result.forEach((node) => {
@@ -90,7 +90,7 @@ function cellClick(x, y) {
     const node = scenario[x][y];
     if(currentMode === 'prohibited') {
         if(node.waypoint) {
-            messageBox.innerText = 'You cannot place a waypoint here.';
+            messageBox.innerText = 'No puede poner un punto de referencia aquí.';
             return;
         }
         if(!node.prohibited) {
@@ -99,22 +99,22 @@ function cellClick(x, y) {
         }
     } else if(currentMode === 'start') {
         if(startNode !== null) {
-            messageBox.innerText = 'You have already defined the start.';
+            messageBox.innerText = 'Ya ha definido el comienzo.';
             return;
         }
         if(node.waypoint) {
-            messageBox.innerText = 'You cannot place a waypoint as the start.';
+            messageBox.innerText = 'No puede poner un punto de referencia al comienzo.';
             return;
         }
         paint(cell, 'table-primary');
         startNode = node;
     } else if(currentMode === 'end') {
         if(endNode !== null) {
-            messageBox.innerText = 'You have already defined the end.';
+            messageBox.innerText = 'Ya ha definido el final.';
             return;
         }
         if(node.waypoint) {
-            messageBox.innerText = 'You cannot place a waypoint as the end.';
+            messageBox.innerText = 'No puede poner un punto de referencia al final.';
             return;
         }
         paint(cell, 'table-success');
@@ -132,7 +132,7 @@ function cellClick(x, y) {
         if(node == endNode) endNode = null;
     } else if(currentMode === 'waypoint') {
         if(startNode !== null && startNode == node || endNode !== null && endNode == node || node.prohibited || node.dangerZone || node.mountain) {
-            messageBox.innerText = 'You cannot place a waypoint here.';
+            messageBox.innerText = 'No puede poner un punto de referencia aquí.';
             return;
         }
         if(!node.waypoint) {
@@ -142,7 +142,7 @@ function cellClick(x, y) {
         }
     } else if(currentMode === 'danger') {
         if(node.waypoint) {
-            messageBox.innerText = 'You cannot place a waypoint here.';
+            messageBox.innerText = 'No puede poner un punto de referencia aquí.';
             return;
         }
         paint(cell, 'table-dark');
@@ -150,11 +150,11 @@ function cellClick(x, y) {
         dangerZones.push(node);
     } else if(currentMode === 'mountain') {
         if(node.waypoint) {
-            messageBox.innerText = 'You cannot place a waypoint here.';
+            messageBox.innerText = 'No puede poner un punto de referencia aquí.';
             return;
         }
         if(pHeight === 0 || mHeight === 0) {
-            messageBox.innerText = 'You must define the plane and mountain heights.';
+            messageBox.innerText = 'Debe definir la altura de la montaña y del plano.';
             return;
         }
         paint(cell, 'table-secondary');
