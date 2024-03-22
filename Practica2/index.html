@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang = "es">
+    <head>
+        <title>ID3 JoseMaria Juan</title>
+        <meta charset="utf-8"/>
+    <!-- Enlaces a estilos -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link href="./treant-js/Treant.css" rel="stylesheet">
+        <link rel="stylesheet" href="./css/style.css">
+    </head>
+    <body onload="onPageLoad()">
+<h1 class="text-center text-light">
+  ID3 Jose Maria Galvez y Juan Embid
+</h1>
+        <div class="container w-75">
+                  <!-- Sección para cargar archivos -->
+            <div class="row g-3 mt-3 red">
+                <div class="col-auto">
+                   <!-- Etiqueta y campo para cargar el archivo de atributos -->
+                  <label for="nomAtrib" class="form-label">Fichero atributos</label>
+                  <input type="file" class="form-control text-dark" id="nomAtrib" placeholder="Nombre fichero atributos">
+                </div>
+              <!-- Etiqueta y campo para cargar el archivo de juego -->
+
+                <div class="col-auto">
+                  <label for="nomJuego" class="form-label">Fichero juego</label>
+                  <input type="file" class="form-control" id="nomJuego" placeholder="Nombre fichero juego">
+                </div>
+                <div class="col-auto">
+                  <button type="button" id="buttonJugar" class="btn btn-primary buttonIniciar" onclick="buttonClick('iniciar')">Ejecutar algoritmo</button>
+              </div>
+            </div>
+            <p id="msg" class="text-danger"></p>
+
+            <div class="row g-3 mt-3 red" id="divTabla"></div>
+            <div class="row r-3 mt-3 red justify-content-center">
+              <div class="arbol" id="tree-simple"></div>
+            </div>
+        </div>
+    <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        <script src="./js/main.js"></script>
+
+        <script src="./treant-js/vendor/raphael.js"></script>
+        <script src="./treant-js/Treant.js"></script>
+    </body>
+</html>

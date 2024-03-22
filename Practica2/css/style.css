@@ -1,0 +1,17 @@
+body {
+    background-color: #212529;
+}
+.red {
+    background-color: rgb(242, 164, 49);
+    border-radius: 1em;
+    padding: 0.5em;
+}
+
+.buttonIniciar {
+    margin-top: 2em;
+}
+
+.arbol {
+    width: 35%;
+    height: 35%;
+}
