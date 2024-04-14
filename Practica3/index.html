@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang = "es">
+    <head>
+        <title>Métodos de clasificación</title>
+        <meta charset = "utf-8"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link href="./css/style.css" rel="stylesheet">
+    </head>
+    <body onload="onPageLoad()">
+<h1 class="text-center text-light">
+  Métodos de clasificación Jose Maria Galvez y Juan Embid
+</h1>
+      </nav>
+        <div class="container w-75">
+            
+            <div class="row g-3 mt-3 red">
+                <div class="col-auto">
+                  <label for="nomAtrib" class="form-label">Fichero de clases</label>
+                  <input type="file" class="form-control" id="nomAtrib" placeholder="Fichero de clases">
+                </div>
+                <div class="col-auto">
+                  <label for="nomJuego" class="form-label">Fichero de ejemplo</label>
+                  <input type="file" class="form-control" id="nomJuego" placeholder="Fichero de ejemplo">
+                </div>
+                <div class="col-auto btn-group buttonIniciar" role="group">
+                  <button type="button" class="btn btn-primary" onclick="buttonClick('kmedias')">K-medias</button>
+                  <button type="button" class="btn btn-primary" onclick="buttonClick('bayes')">Bayes</button>
+                  <button type="button" class="btn btn-primary" onclick="buttonClick('lloyd')">Lloyd</button>
+                </div>
+            </div>
+            <p id="msg" class="text-danger"></p>
+
+            <div class="row g-3 mt-3 red hide" id="results">
+            </div>
+
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js" integrity="sha512-DmQnZdEjFh4R/040JxDSg3j9cS8D0oC5u2noG9Az18F11leiDFwrTOkm9PP+jdBMiH66QBa73O+54kZr5FyU7w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="./js/config.js"></script>
+        <script src="./js/algorithms/bayes.js"></script>
+        <script src="./js/algorithms/kmedias.js"></script>
+        <script src="./js/algorithms/lloyd.js"></script>
+        <script src="./js/main.js"></script>
+    </body>
+</html>

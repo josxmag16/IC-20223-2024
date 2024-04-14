@@ -1,0 +1,21 @@
+body {
+    background-color: #212529;
+}
+.red {
+    background-color: orange;
+    border-radius: 1em;
+    padding: 0.5em;
+}
+
+.buttonIniciar {
+    margin-top: 2em;
+}
+
+.arbol {
+    width: 35%;
+    height: 35%;
+}
+
+.hide {
+    display: none;
+}
