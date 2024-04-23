@@ -1,3 +1,4 @@
+// Declaración de variables globales
 let nombreAtribElem, nombreJuegoElem;
 let nombreAtrib, nombreJuego;
 let tablaElem, divTablaElem;
@@ -6,25 +7,31 @@ let datos = {}, ejemplo = {};
 let resultado;
 let sol = [];
 const centrosIniciales = [[4.6, 3.0, 4.0, 0.0], [6.8, 3.4, 4.6, 0.7]];
+
+// Función que se ejecuta al cargar la página
 function onPageLoad() {
+    // Asignación de elementos del DOM a variables
     nombreAtribElem = document.getElementById("nomAtrib");
     nombreJuegoElem = document.getElementById("nomJuego");
     tablaElem = document.getElementById("table");
     errorMsgElem = document.getElementById('msg');
     divTablaElem = document.getElementById('results');
+
+    // Event listener para el cambio en el input de nombreAtrib
     nombreAtribElem.addEventListener('change', (event) => {
         datos = {};
         readTextFile(event);
     });
+
+    // Event listener para el cambio en el input de nombreJuego
     nombreJuegoElem.addEventListener('change', (event) => {
         ejemplo = {};
         readTextFile(event, 1);
-    });
-    
+    });  
 }
 
-function readTextFile(event, type = 0)//type 0 lee atributos, type 1 lee propiedades
-{
+// Función para leer un archivo de texto
+function readTextFile(event, type = 0) {
     const fileList = event.target.files;
     if (fileList.length > 0) {
         const reader = new FileReader();
@@ -32,6 +39,7 @@ function readTextFile(event, type = 0)//type 0 lee atributos, type 1 lee propied
             const result = event.target.result;
             errorMsgElem.innerText = "";
             if (type === 0) {
+                // Lectura de atributos
                 let result2 = result.replace(/(?:\r|\r|)/g, '');
                 let rows = result2.split('\n');
                 rows.forEach(e => {
@@ -42,6 +50,7 @@ function readTextFile(event, type = 0)//type 0 lee atributos, type 1 lee propied
                 });
                 console.log(datos);
             } else {
+                // Lectura de propiedades
                 if (Object.keys(datos).length === 0) {
                     nombreJuegoElem.value = "";
                     errorMsgElem.innerText = 'Debes seleccionar primero el fichero de clases';
@@ -56,6 +65,7 @@ function readTextFile(event, type = 0)//type 0 lee atributos, type 1 lee propied
     }
 }
 
+// Función para manejar el clic en los botones
 function buttonClick(mode) {
     divTablaElem.innerHTML = '';
     divTablaElem.classList.add('hide');
@@ -70,6 +80,7 @@ function buttonClick(mode) {
     }
 }
 
+// Función para ejecutar el algoritmo K-medias
 function exec_kmedias(x, v, b, epsilon, clases) {
     const k = new KMeans(math.transpose(x), v, b, epsilon, clases);
     divTablaElem.innerHTML += `<h1>Tolerancia: ${epsilon}</h1>`;
@@ -84,6 +95,7 @@ function exec_kmedias(x, v, b, epsilon, clases) {
     divTablaElem.classList.remove('hide');
 }
 
+// Función para ejecutar el algoritmo de Bayes
 function exec_bayes() {
     const b = new Bayes(4);
     Object.keys(datos).forEach(k => {
@@ -115,6 +127,7 @@ function exec_bayes() {
     divTablaElem.innerHTML += `<h5>[${ejemplo[testName]}] clasificado como clase: ${b.classify(ejemplo[testName])}</h5>`;
 }
 
+// Función para ejecutar el algoritmo Lloyd
 function exec_lloyd() {
     let arr = [];
     Object.keys(datos).forEach(k => arr = arr.concat(datos[k]));
@@ -128,7 +141,7 @@ function exec_lloyd() {
     divTablaElem.classList.remove('hide');
 }
 
-
+// Función para generar una tabla HTML
 function generateTable(table, data) {
     for (let vector of data) {
         let row = table.insertRow();
@@ -140,6 +153,7 @@ function generateTable(table, data) {
     }
 }
 
+// Función para generar una segunda tabla HTML
 function generateTable2(table, data) {
     let row = table.insertRow();
     for (num of data) {
